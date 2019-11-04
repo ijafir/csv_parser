@@ -1,0 +1,23 @@
+apply plugin: "java"
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testCompile "junit:junit:4.12"
+}
+
+
+ext {
+    javaMainClass = "exercise.Parser"
+}
+
+
+test{
+    useJUnit()
+}
+task 'process-csv'(type: JavaExec) {
+    main = 'exercise.Parser'
+    classpath = sourceSets.main.runtimeClasspath
+}
